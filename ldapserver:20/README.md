@@ -1,41 +1,20 @@
-# ldapserver:18practica
+# LDAP
+## @edt Sergi Muñoz Carmona ASIX M06-ASO Curs 2018-2019
+
+## Imatge LDAP en Dockerhub:
+Podeu trobar les imatges docker al Dockerhub de [sergimc](https://hub.docker.com/u/sergimc/)
+* **ldap:** [ldap](https://cloud.docker.com/repository/docker/sergimc/ldapserver) (#tag: 18homes)
 
 
-## @edt ASIX M06-ASO Curs 2018-2019
+ASIX M06-ASO Escola del treball de barcelona
 
-Servidor ldap amb edt.org, amb usuaris i grups, RDN=uid
-Exercici per practicar tots els conceptes treballats.
-
-
-S'han afegit els grups que són posixGroup i identifiquen als membres del group amb l'atribut memberUid.
-
-#### Exemple de dades .ldif
-
-Entitat **grups** per acollir els grups:
-```
-dn: ou=grups,dc=edt,dc=org
-ou: groups
-description: Container per a grups
-objectclass: organizationalunit
-```
-
-Entitat grup 2asix:
-```
-dn: cn=2asix,ou=grups,dc=edt,dc=org
-cn: 2asix
-gidNumber: 611
-description: Grup de 2asix
-memberUid: user06
-memberUid: user07
-memberUid: user08
-memberUid: user09
-memberUid: user10
-objectclass: posixGroup
-```
+* **sergimc/ldapserver:20**  servidor ldap amb la base la dades dc=edt,dc=org.
+Per posar en funcionament aquest model només es necessita un servidor ldap.
 
 
 #### Execució
 
 ```
-$ docker run --rm --name ldap -h ldap --net ldapnet -d edtasixm06/ldapserver:18group
+docker run --rm --name ldap --hostname ldap --network XXXX -d sergimc/ldapserver:20
+
 ```
