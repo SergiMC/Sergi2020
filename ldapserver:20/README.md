@@ -22,6 +22,8 @@ Els fitxers es situen en el directori **/etc/openldap/**
 
 #### Execució
 
+Executarem el docker amb l'ordre *docker run*.
+
 ```
 docker run --rm --name ldap --hostname ldap --network XXXX -d sergimc/ldapserver:20
 
