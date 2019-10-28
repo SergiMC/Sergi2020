@@ -15,8 +15,8 @@ Per posar en funcionament aquest model només es necessita un servidor ldap.
 #### Configuració
 Per configurar el servidor ldap, dispondrem de dos fitxers:
 
-**ldap.conf**
-**slapd.conf**
+* *ldap.conf*
+* *slapd.conf*
 
 Els fitxers es situen en el directori **/etc/openldap/**
 
