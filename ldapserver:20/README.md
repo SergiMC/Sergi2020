@@ -12,6 +12,8 @@ ASIX M06-ASO Escola del treball de barcelona
 Per posar en funcionament aquest model només es necessita un servidor ldap.
 
 
+### Configuració
+
 #### Execució
 
 ```
