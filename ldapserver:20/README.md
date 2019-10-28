@@ -12,7 +12,13 @@ ASIX M06-ASO Escola del treball de barcelona
 Per posar en funcionament aquest model només es necessita un servidor ldap.
 
 
-### Configuració
+#### Configuració
+Per configurar el servidor ldap, dispondrem de dos fitxers:
+
+*ldap.conf*
+*slapd.conf*
+
+Els fitxers es situen en el directori **/etc/openldap/**
 
 #### Execució
 
