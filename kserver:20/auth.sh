@@ -1,10 +1,11 @@
 #! /bin/bash
-# @edt ASIX-M06
+# @edt ASIX-M011 Sergi Muñoz
+# Tasca Kerberos
 # -----------------
 
 authconfig  --enableshadow --enablelocauthorize --enableldap \
-            --ldapserver='ldap.edt.org' --ldapbase='dc=edt,dc=org' \
-            --enablekrb5 --krb5kdc='kserver.edt.org' \
-            --krb5adminserver='kserver.edt.org' --krb5realm='EDT.ORG' \
+            --ldapserver='ldap.sergi.cat' --ldapbase='dc=edt,dc=org' \
+            --enablekrb5 --krb5kdc='kserver.sergi.cat' \
+            --krb5adminserver='kserver.sergi.cat' --krb5realm='SERGI.CAT' \
             --updateall
 
