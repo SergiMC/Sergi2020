@@ -1,56 +1,21 @@
-# Kerberos khost
+# Kerberos kserver
 ## @edt ASIX M11-SAD Curs 2018-2019
 
-**edtasixm11/k18:khostpl** host amb PAM amb autenticació AP de  kerberos i IP de ldap.
-  El servidor kerberos al que contacta s'ha de dir *kserver.edt.org*. El servidor ldap
-  s'anomena ldap.edt.org. Aquest host es configura amb authconfig .
-  
-per generar autenticació PAM amb kerberos i ldap cal:
+**edtasixm11/k18:kserver** servidor kerberos detach. Crea els usuaris pere
+  pau (admin), jordi, anna, marta, marta/admin i julia.
+  Assignar-li el nom de host: *kserver.edt.org*
 
-Part Global:
-  * instal·lar procs passwd.
-  * crear els usuaris i assignar password als locals.
-  * un cop fet tot, configurar amb authconfig la autenticació local,
-    kerberos i ldap.
+Servidor kerberos. Aquest servidor crea els principals corresponents als clàssics
+usuaris que tenim també a ldap.
 
-Part Ldap:
- * instal·lar openldap-clients nss-pam-ldapd authconfig
- * copiar la configuració client /etc/openldap/ldap.conf.
- * copiar la configuració client /etc/nslcd.
- * copiar la configuració ns /etc/nsswitch.conf.
- * activar el servei nslcd
- * activar el servei nscd
+Les característiques principals són:
+ * s'ha d'anomenar kserver.edt.org
+ * usuaris amb nomenclatura ldap:   pere, pau (administrador), jordi, marta, anna, julia.
+ * usuaris administradors kerberos: superuser (administrador), marta/admin.
+ * es crea un principal de host corresponent al servidor host/sshd.edt.org.
+ * tot el procés és autometitzat i el servidor s'executa detach.
 
-Part Kerberos
- * instal·lar pam_krb5 authconfig
- * copiar /etc/krb5.conf per la configuració client kerberos
-
-Authconfig:
+Execució:
 ```
-authconfig  --enableshadow --enablelocauthorize --enableldap \
-            --ldapserver='ldap.edt.org' --ldapbase='dc=edt,dc=org' \
-            --enablekrb5 --krb5kdc='kserver.edt.org' \
-            --krb5adminserver='kserver.edt.org' --krb5realm='EDT.ORG' \
-            --updateall
-```
-
-#### Execució:
-```
-docker run --rm --name ldap.edt.org -h ldap.edt.org --net mynet -d edtasixm06/ldapserver:18group
-docker run --rm --name kserver.edt.org -h kserver.edt.org --net mynet -d edtasixm11/k18:kserver
-docker run --rm --name khost.edt.org -h khost.edt.org --net mynet -it edtasixm11/k18:khostpl
-```
-
-Test:
-
-
-
-```
-$ su - local01
-
-[local01@host ~]$ su - user03
-Password:  kuser03
-
-[user03@host ~]$ id
-uid=1005(user03) gid=100(users) groups=100(users),1001(kusers)
+docker run --rm --name kserver.edt.org -h kserver.edt.org --net mynet -s edtasixm11/k18:kserver
 ```
