@@ -1,21 +1,26 @@
 #! /bin/bash
 
-cp /opt/docker/krb5.conf /etc/krb5.conf
-cp /opt/docker/kdc.conf /var/kerberos/krb5kdc/kdc.conf
-cp /opt/docker/kadm5.acl /var/kerberos/krb5kdc/kadm5.acl
+groupadd local01
+groupadd kusers
+useradd -g users -G local01 local01
+useradd -g users -G local01 local02
+useradd -g users -G local01 local03
+useradd -g users -G kusers user01
+useradd -g users -G kusers user02
+useradd -g users -G kusers user03
+echo "local01" | passwd --stdin local01
+echo "local02" | passwd --stdin local02
+echo "local03" | passwd --stdin local03
 
-kdb5_util create -s -P masterkey
-kadmin.local -q "addprinc -pw kpere pere"
-kadmin.local -q "addprinc -pw kanna anna"
-kadmin.local -q "addprinc -pw kpau pau"
-kadmin.local -q "addprinc -pw kjordi jordi"
-kadmin.local -q "addprinc -pw kmarta marta"
-kadmin.local -q "addprinc -pw kmarta marta/admin"
-kadmin.local -q "addprinc -pw kjulia julia"
-kadmin.local -q "addprinc -pw superuser superuser"
-kadmin.local -q "addprinc -pw kuser01 user01"
-kadmin.local -q "addprinc -pw kuser02 user02"
-kadmin.local -q "addprinc -pw kuser03 user03"
-kadmin.local -q "addprinc -randkey host/sshd.edt.org"
+cp /opt/docker/krb5.conf /etc/krb5.conf
+bash /opt/docker/auth.sh
+cp /opt/docker/nslcd.conf /etc/nslcd.conf
+cp /opt/docker/ldap.conf /etc/openldap/ldap.conf
+cp /opt/docker/nsswitch.conf /etc/nsswitch.conf
+#cp /opt/docker/system-auth-edt /etc/pam.d/system-auth-edt
+#cp /opt/docker/pam_mount.conf.xml /etc/security/pam_mount.conf.xml
+#ln -sf /etc/pam.d/system-auth-edt /etc/pam.d/system-auth
+#cp /opt/docker/system-auth /etc/pam.d/system-auth
+
 
 
