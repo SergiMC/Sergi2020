@@ -1,4 +1,6 @@
 #! /bin/bash
 /opt/docker/install.sh && echo "Ok install"
-/usr/sbin/krb5kdc
-/usr/sbin/kadmind -nofork 
+/usr/sbin/nslcd && echo "nslcd Ok"
+/usr/sbin/nscd && echo "nscd Ok"
+/bin/bash
+
