@@ -46,10 +46,10 @@ docker run --rm --name kclient.sergi.cat -h kclient.sergi.cat --net netcompose -
 Test:
 
 ```
-[root@khost docker]# su - local01
-[local01@khost ~]$ su - user03
+[root@kclient docker]# su - local01
+[local01@kclient ~]$ su - user03
 pam_mount password:
-[user03@khost ~]$ id
+[user03@kclient ~]$ id
 uid=1005(user03) gid=100(users) groups=100(users),610(1asix),1001(kusers)
 
 
