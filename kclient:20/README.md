@@ -1,8 +1,7 @@
-# UNDERCONSTRUCTION
-# Kerberos khost
-## @edt ASIX M11-SAD Curs 2018-2019
+# Kerberos Client
+## @edt ASIX M11-SAD Curs 2019-2020
 
-**edtasixm11/k18:khostpl** host amb PAM amb autenticació AP de  kerberos i IP de ldap.
+**sergimc/** host amb PAM amb autenticació AP de  kerberos i IP de ldap.
   El servidor kerberos al que contacta s'ha de dir *kserver.edt.org*. El servidor ldap
   s'anomena ldap.edt.org. Aquest host es configura amb authconfig .
   
