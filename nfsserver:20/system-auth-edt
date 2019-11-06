@@ -26,6 +26,6 @@ session     required      pam_limits.so
 session     optional      pam_mkhomedir.so
 session     [success=1 default=ignore] pam_succeed_if.so service in crond quiet use_uid
 session     [success=1  default=ignore] pam_succeed_if.so uid < 5000
-   session     optional      pam_mount.so
+session     optional      pam_mount.so
 session     sufficient    pam_unix.so
 
