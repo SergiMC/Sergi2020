@@ -25,15 +25,6 @@ Part Kerberos
  * instal·lar pam_krb5 authconfig
  * copiar /etc/krb5.conf per la configuració client kerberos
 
-Authconfig:
-```
-authconfig  --enableshadow --enablelocauthorize --enableldap \
-            --ldapserver='ldap.edt.org' --ldapbase='dc=edt,dc=org' \
-            --enablekrb5 --krb5kdc='kserver.edt.org' \
-            --krb5adminserver='kserver.edt.org' --krb5realm='EDT.ORG' \
-            --updateall
-```
-
 #### Execució:
 ```
 docker run --rm --name ldap.sergi.cat --hostname ldap.sergi.cat --net netcompose -d sergimc/ldapserver:20
