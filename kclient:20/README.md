@@ -37,22 +37,20 @@ authconfig  --enableshadow --enablelocauthorize --enableldap \
 
 #### Execució:
 ```
-docker run --rm --name ldap.edt.org -h ldap.edt.org --net mynet -d edtasixm06/ldapserver:18group
-docker run --rm --name kserver.edt.org -h kserver.edt.org --net mynet -d edtasixm11/k18:kserver
-docker run --rm --name samba -h samba --net sambanet --privileged -it edtasixm06/samba:18ldapusers
-docker run --rm --name khost.edt.org -h khost.edt.org --net mynet --privileged -it edtasixm11/k18:khostpls
+docker run --rm --name ldap.sergi.cat --hostname ldap.sergi.cat --net netcompose -d sergimc/ldapserver:20
+docker run --rm --name kserver.sergi.cat --hostname kserver.sergi.cat --net netcompose -d sergimc/kserver:20
+docker run --rm --name samba --hostname samba --net netcompose --privileged -d sergimc/samba:20
+docker run --rm --name kclient.sergi.cat -h kclient.sergi.cat --net netcompose --privileged -it sergimc/kclient:20 
 ```
 
 Test:
 
-
-
 ```
-$ su - local01
+[root@khost docker]# su - local01
+[local01@khost ~]$ su - user03
+pam_mount password:
+[user03@khost ~]$ id
+uid=1005(user03) gid=100(users) groups=100(users),610(1asix),1001(kusers)
 
-[local01@host ~]$ su - user03
-Password:  kuser03
 
-[user03@host ~]$ id
-uid=1005(user03) gid=100(users) groups=100(users),1001(kusers)
 ```
