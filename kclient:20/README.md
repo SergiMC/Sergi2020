@@ -44,3 +44,52 @@ uid=1005(user03) gid=100(users) groups=100(users),610(1asix),1001(kusers)
 
 
 ```
+
+#### Comprovacions:
+
+LDAP:
+
+```
+[root@kclient docker]# ldapsearch -x -LLL -h 172.24.0.2 -b "dc=edt,dc=org" dn
+dn: dc=edt,dc=org
+
+dn: ou=maquines,dc=edt,dc=org
+
+dn: ou=clients,dc=edt,dc=org
+
+dn: ou=productes,dc=edt,dc=org
+
+dn: ou=usuaris,dc=edt,dc=org
+
+dn: ou=hosts,dc=edt,dc=org
+
+dn: ou=keys,dc=edt,dc=org
+
+dn: ou=certs,dc=edt,dc=org
+
+dn: ou=domains,dc=edt,dc=org
+
+dn: o=asia,ou=clients,dc=edt,dc=org
+
+dn: o=africa,ou=clients,dc=edt,dc=org
+
+dn: o=europa,ou=clients,dc=edt,dc=org
+
+dn: o=eu,o=europa,ou=clients,dc=edt,dc=org
+
+dn: o=noneu,o=europa,ou=clients,dc=edt,dc=org
+
+dn: uid=pau,ou=usuaris,dc=edt,dc=org
+
+dn: uid=pere,ou=usuaris,dc=edt,dc=org
+
+dn: uid=anna,ou=usuaris,dc=edt,dc=org
+
+dn: uid=marta,ou=usuaris,dc=edt,dc=org
+
+dn: uid=Jordi,ou=usuaris,dc=edt,dc=org
+
+dn: uid=admin,ou=usuaris,dc=edt,dc=org
+
+
+```
