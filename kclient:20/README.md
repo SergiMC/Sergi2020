@@ -37,10 +37,18 @@ Test:
 
 ```
 [root@kclient docker]# su - local01
-[local01@kclient ~]$ su - user03
-pam_mount password:
-[user03@kclient ~]$ id
-uid=1005(user03) gid=100(users) groups=100(users),610(1asix),1001(kusers)
+reenter password for pam_mount:
+[root@kclient docker]# su - pere
+Creating directory '/tmp/home/pere'.
+reenter password for pam_mount:
+[pere@kclient ~]$ ll
+total 0
+drwxr-xr-x. 2 pere users 0 Nov 11 12:01 pere
+[pere@kclient ~]$ pwd
+/tmp/home/pere
+[pere@kclient ~]$ mount -t cifs
+//samba/pere on /tmp/home/pere/pere type cifs (rw,relatime,vers=default,cache=strict,username=pere,domain=,uid=5001,forceuid,gid=100,forcegid,addr=172.24.0.4,file_mode=0755,dir_mode=0755,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,echo_interval=60,actimeo=1)
+
 
 
 ```
