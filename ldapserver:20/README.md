@@ -28,3 +28,50 @@ Executarem el docker amb l'ordre *docker run*.
 docker run --rm --name ldap --hostname ldap --network XXXX -d sergimc/ldapserver:20
 
 ```
+#### Comprovació
+
+Comprovem que ldap està funcionant correctament i mostra els usuaris/dn's amb l'ordre ldapsearch en local.
+
+```
+[root@ldap docker]# ldapsearch -x -LLL -h localhost -b "dc=edt,dc=org" dn
+dn: dc=edt,dc=org
+
+dn: ou=maquines,dc=edt,dc=org
+
+dn: ou=clients,dc=edt,dc=org
+
+dn: ou=productes,dc=edt,dc=org
+
+dn: ou=usuaris,dc=edt,dc=org
+
+dn: ou=hosts,dc=edt,dc=org
+
+dn: ou=keys,dc=edt,dc=org
+
+dn: ou=certs,dc=edt,dc=org
+
+dn: ou=domains,dc=edt,dc=org
+
+dn: o=asia,ou=clients,dc=edt,dc=org
+
+dn: o=africa,ou=clients,dc=edt,dc=org
+
+dn: o=europa,ou=clients,dc=edt,dc=org
+
+dn: o=eu,o=europa,ou=clients,dc=edt,dc=org
+
+dn: o=noneu,o=europa,ou=clients,dc=edt,dc=org
+
+dn: uid=pau,ou=usuaris,dc=edt,dc=org
+
+dn: uid=pere,ou=usuaris,dc=edt,dc=org
+
+dn: uid=anna,ou=usuaris,dc=edt,dc=org
+
+dn: uid=marta,ou=usuaris,dc=edt,dc=org
+
+dn: uid=Jordi,ou=usuaris,dc=edt,dc=org
+
+dn: uid=admin,ou=usuaris,dc=edt,dc=org
+
+```
