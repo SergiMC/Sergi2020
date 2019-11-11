@@ -53,14 +53,6 @@ mkdir /var/lib/samba/privat
 cp /opt/docker/smb.conf /etc/samba/smb.conf
 cp /opt/docker/*.md /var/lib/samba/privat/.
 
-useradd smbuser1
-useradd smbuser2
-useradd smbuser3
-
-echo -e "smbuser1\nsmbuser1" | smbpasswd -a smbuser1
-echo -e "smbuser2\nsmbuser2" | smbpasswd -a smbuser2
-echo -e "smbuser3\nsmbuser3" | smbpasswd -a smbuser3
-
 echo -e "kpere\nkpere" | smbpasswd -a pere
 echo -e "kpau\nkpau" | smbpasswd -a pau
 echo -e "kanna\nkanna" | smbpasswd -a anna
