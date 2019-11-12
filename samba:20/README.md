@@ -45,6 +45,19 @@ Configuracio d'acceś al servidor LDAP:
     Necessitarem configurar el pam_mount.conf.xml que està a la ruta: */etc/security/pam_mount.conf.xml*
     per muntar el recurs samba dels homes.
 
+### Execució:
+
+```
+docker network create netcompose
+
+docker run --rm --name ldap --hostname ldap --network sambanet -d sergimc/ldapserver:18homes
+
+docker run --rm --name samba --hostname samba --network sambanet --privileged -d sergimc/samba:18homes
+
+docker run --rm --name host --hostname host --network sambanet --privileged -it sergimc/hostpam:18homesmb
+
+```
+
 #### Comprovacions:
 
 LOCALMENT:
