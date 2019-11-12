@@ -1,3 +1,27 @@
+# Servidor SAMBA
+## @edt Sergi Muñoz Carmona ASIX M11-ASO Curs 2019-2020
+
+## Imatge servidor SAMBA en Dockerhub
+Podeu trobar les imatges docker al Dockerhub de [sergimc](https://hub.docker.com/u/sergimc/)
+* **samba:** [samba:20](https://cloud.docker.com/repository/docker/sergimc/samba) (#tag: 20)
+
+### Imatge:
+
+* **sergimc/samba:20** Servidor SAMBA que comparteix recursos anomenats shares dels usuaris locals i
+LDAP(Unix). Es creen els directoris dels usuaris ldap, se'ls assigna la propietat i grup. S'exporten els
+homes i shares dels usuaris.
+
+Per posar en funcionament aquest model es necessàri un server ldap+kerberos+kclient
+
+### Arquitectura:
+Per a que dins d'un host es muntin els homes dels usuaris unix i ldap via samba necessitem:
+  - Una xarxa propia per als conjunt de containers que utilitzem: netcompose.
+  - Un servidor ldap amb els usuaris de xarxa: sergimc/ldapserver:20.
+  - Un servidor samba que exporti els homes dels usuaris samba.
+  - Un servidor kerberos que proporciona el servei d'autenticació dels usuaris.
+  - Un kclient que està configurat amb el PAM per poder montar els homes dels usuaris i
+    per comprovar les tasques.
+
 #### Comprovacions:
 
 LOCALMENT:
