@@ -47,6 +47,8 @@ Configuracio d'acceś al servidor LDAP:
 
 ### Execució:
 
+Executem els containers per activar tota l'estructura.
+
 ```
 docker network create netcompose
 
