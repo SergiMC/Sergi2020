@@ -67,7 +67,7 @@ Per comprovar localment utilitzarem l'ordre **smbclient** el qual ens connectare
 *LOCALMENT:*
 ```
 [root@samba docker]# smbclient -U pere //localhost/pere
-Enter MYGROUP\pere's password: 
+Enter MYGROUP\pere's password: kpere
 Try "help" to get a list of possible commands.
 smb: \> ls
   .                                   D        0  Mon Nov 11 11:05:55 2019
