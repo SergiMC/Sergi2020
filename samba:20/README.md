@@ -50,11 +50,10 @@ Configuracio d'acceś al servidor LDAP:
 ```
 docker network create netcompose
 
-docker run --rm --name ldap --hostname ldap --network sambanet -d sergimc/ldapserver:18homes
-
-docker run --rm --name samba --hostname samba --network sambanet --privileged -d sergimc/samba:18homes
-
-docker run --rm --name host --hostname host --network sambanet --privileged -it sergimc/hostpam:18homesmb
+docker run --rm --name ldap.sergi.cat --hostname ldap.sergi.cat --net netcompose -d sergimc/ldapserver:20
+docker run --rm --name kserver.sergi.cat --hostname kserver.sergi.cat --net netcompose -d sergimc/kserver:20
+docker run --rm --name samba --hostname samba --net netcompose --privileged -d sergimc/samba:20
+docker run --rm --name kclient.sergi.cat -h kclient.sergi.cat --net netcompose --privileged -it sergimc/kclient:20 
 
 ```
 
