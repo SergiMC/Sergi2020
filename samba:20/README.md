@@ -62,7 +62,8 @@ docker run --rm --name kclient.sergi.cat -h kclient.sergi.cat --net netcompose -
 ### Comprovacions:
 Comprovarem que el servidor samba funciona correctament tant localment, com fora del docker.
 
-Per comprovar localment utilitzarem l'ordre **smbclient** el qual ens connectarem a un usuari i llistarem els recursos.
+Per comprovar localment utilitzarem l'ordre **smbclient** el qual ens connectarem a un usuari ldap 
+amb autenticació kerberos i llistarem els recursos.
 
 *LOCALMENT:*
 ```
