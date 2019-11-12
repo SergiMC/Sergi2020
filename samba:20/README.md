@@ -50,7 +50,6 @@ Configuracio d'acceś al servidor LDAP:
 ```
 docker network create netcompose
 docker run --rm --name samba --hostname samba --net netcompose --privileged -d sergimc/samba:20
-
 ```
 ### Comprovacions:
 Comprovarem que el servidor samba funciona correctament tant localment, com fora del docker.
