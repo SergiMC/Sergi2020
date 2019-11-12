@@ -14,7 +14,7 @@ homes i shares dels usuaris.
 Per posar en funcionament aquest model es necessàri un server ldap+kerberos+kclient
 
 ### Arquitectura:
-Per a que dins d'un host es muntin els homes dels usuaris unix i ldap via samba necessitem:
+Per a que dins d'un host client es muntin els homes dels usuaris unix i ldap via samba necessitem:
   - Una xarxa propia per als conjunt de containers que utilitzem: netcompose.
   - Un servidor ldap amb els usuaris de xarxa: sergimc/ldapserver:20.
   - Un servidor samba que exporti els homes dels usuaris samba.
