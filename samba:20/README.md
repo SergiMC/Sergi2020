@@ -39,7 +39,7 @@ Configuracio d'acceś al servidor LDAP:
    Per a cada usuari crearem el seu compte amb l'ordre *smbpasswd* i assignant-li el passwd de samba.
    Es desarà en la base de dades ldap.
    
--PAM (dins del kclient:20)
+- PAM (dins del kclient:20)
   - Dins del **sergimc/kclient:20** configurarem el PAM per tal d'accedir als usuaris locals i als LDAP i utilitzant
     pam_mount.so per tal de muntar dins del home dels usuaris un home de xarxa via samba. 
     Necessitarem configurar el pam_mount.conf.xml que està a la ruta: */etc/security/pam_mount.conf.xml*
