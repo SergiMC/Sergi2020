@@ -27,7 +27,7 @@ docker run --rm --name ldap --hostname ldap --network XXXX -d sergimc/ldapserver
 ```
 #### Comprovació
 
-Comprovem que ldap està funcionant correctament i mostra els usuaris/dn's amb l'ordre ldapsearch en local.
+Comprovem que ldap està funcionant correctament i mostra els usuaris/dn's amb l'ordre **ldapsearch** en local.
 
 ```
 [root@ldap docker]# ldapsearch -x -LLL -h localhost -b "dc=edt,dc=org" dn
