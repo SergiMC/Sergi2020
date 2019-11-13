@@ -18,7 +18,7 @@ Les autenticacions dels usuaris es defineixen mitjançant el ticket de kerberos 
 ### Usuaris 
 
 * Usuaris ldap: pere, marta , pau, jordi ,anna, admin.
-* Usuaris admin Kerberos: pere/admin, marta/admin
+* Usuaris admin Kerberos: pere/admin, marta/admin.
 
 
 ### Execució:
