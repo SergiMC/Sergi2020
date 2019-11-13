@@ -1,21 +1,31 @@
-# Kerberos kserver
-## @edt ASIX M11-SAD Curs 2018-2019
+# Kerberos Server
+## @edt ASIX M11-SAD 2019-2020
 
-**edtasixm11/k18:kserver** servidor kerberos detach. Crea els usuaris pere
-  pau (admin), jordi, anna, marta, marta/admin i julia.
-  Assignar-li el nom de host: *kserver.edt.org*
+**sergimc/kserver:20** servidor kerberos detach. Servidor que autentica els usuaris (AP *autentication provides*) i crea
+els principals dels usuaris LDAP.
 
-Servidor kerberos. Aquest servidor crea els principals corresponents als clàssics
-usuaris que tenim també a ldap.
+Les autenticacions dels usuaris es defineixen mitjançant el ticket de kerberos vàlid.
 
-Les característiques principals són:
- * s'ha d'anomenar kserver.edt.org
- * usuaris amb nomenclatura ldap:   pere, pau (administrador), jordi, marta, anna, julia.
- * usuaris administradors kerberos: superuser (administrador), marta/admin.
- * es crea un principal de host corresponent al servidor host/sshd.edt.org.
- * tot el procés és autometitzat i el servidor s'executa detach.
+### Configuració
 
-Execució:
+1. Configurem el fitxer **krb5.conf** i editem el REALM i Dominis.
+2. Configurem el fitxer **kdc.conf** i editem el REALM.
+3. Creem la base de dades amb l'eina **kdb5_util**.
+4. Definim les acls dels principals al fitxer **kadm5.acl**.
+5. Crearem els principals als usuaris que es volen incorporar al kerberos.
+
+
+### Usuaris 
+
+* Usuaris ldap: pere, marta , pau, jordi ,anna, admin.
+* Usuaris admin Kerberos: pere/admin, marta/admin
+
+
+### Execució:
 ```
-docker run --rm --name kserver.edt.org -h kserver.edt.org --net mynet -s edtasixm11/k18:kserver
+docker run --rm --name kserver.sergi.cat -h kserver.sergi.cat -network netcompose -d sergimc/kserver:20
+
 ```
+### Comprovació:
+
+
