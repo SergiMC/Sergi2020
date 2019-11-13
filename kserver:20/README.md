@@ -22,10 +22,9 @@ Les autenticacions dels usuaris es defineixen mitjançant el ticket de kerberos 
 
 
 ### Execució:
+
 ```
 docker run --rm --name kserver.sergi.cat --hostname kserver.sergi.cat --net netcompose -d sergimc/kserver:20
-
-
 ```
 ### Comprovació:
 
