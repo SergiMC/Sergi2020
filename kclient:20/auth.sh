@@ -1,5 +1,6 @@
 #! /bin/bash
-# @edt ASIX-M06
+# @edt Sergi Muñoz Carmona
+# auth.sh
 # -----------------
 
 authconfig  --enableshadow --enablelocauthorize --enableldap \
