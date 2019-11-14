@@ -95,5 +95,23 @@ Default principal: pau@SERGI.CAT
 Valid starting     Expires            Service principal
 11/14/19 11:55:57  11/15/19 11:55:57  krbtgt/SERGI.CAT@SERGI.CAT
 
+[root@kclient docker]# kadmin -p pere/admin
+Authenticating as principal pere/admin with password.
+Password for pere/admin@SERGI.CAT: 
+kadmin:  listprincs
+K/M@SERGI.CAT
+anna/admin@SERGI.CAT
+jordi@SERGI.CAT
+julia@SERGI.CAT
+kadmin/admin@SERGI.CAT
+kadmin/changepw@SERGI.CAT
+kadmin/kserver.sergi.cat@SERGI.CAT
+kiprop/kserver.sergi.cat@SERGI.CAT
+krbtgt/SERGI.CAT@SERGI.CAT
+marta@SERGI.CAT
+pau@SERGI.CAT
+pere/admin@SERGI.CAT
+
+
 
 ```
