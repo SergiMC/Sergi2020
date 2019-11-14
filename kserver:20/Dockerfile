@@ -1,3 +1,7 @@
+# Version: 0.0.1
+# @edt Sergi Muñoz Carmona
+# Servidor Kerberos
+# -------------------------------------
 FROM fedora:27
 RUN dnf -y install krb5-server krb5-workstation krb5-libs
 RUN mkdir /opt/docker
