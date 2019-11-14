@@ -28,4 +28,34 @@ docker run --rm --name kserver.sergi.cat --hostname kserver.sergi.cat --net netc
 ```
 ### Comprovació:
 
+```
+[root@kserver docker]# kinit pere/admin
+Password for pere/admin@SERGI.CAT: 
+[root@kserver docker]# klist
+Ticket cache: FILE:/tmp/krb5cc_0
+Default principal: pere/admin@SERGI.CAT
 
+Valid starting     Expires            Service principal
+11/14/19 12:27:59  11/15/19 12:27:59  krbtgt/SERGI.CAT@SERGI.CAT
+
+```
+```
+[root@kserver docker]# kadmin.local -p pere/admin
+Authenticating as principal pere/admin with password.
+kadmin.local:  listprincs
+K/M@SERGI.CAT
+anna/admin@SERGI.CAT
+jordi@SERGI.CAT
+julia@SERGI.CAT
+kadmin/admin@SERGI.CAT
+kadmin/changepw@SERGI.CAT
+kadmin/kserver.sergi.cat@SERGI.CAT
+kiprop/kserver.sergi.cat@SERGI.CAT
+krbtgt/SERGI.CAT@SERGI.CAT
+marta@SERGI.CAT
+pau@SERGI.CAT
+pere/admin@SERGI.CAT
+kadmin.local:  
+
+
+```
