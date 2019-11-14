@@ -9,70 +9,11 @@ objectClass: dcObject
 objectClass: organization
 o: edt.org
 
-dn: ou=maquines,dc=edt,dc=org
-ou: maquines
-description: Container per a maquines linux
-objectclass: organizationalunit
-
-dn: ou=clients,dc=edt,dc=org
-ou: clients
-description: Container per a clients linux
-objectclass: organizationalunit
-
-dn: ou=productes,dc=edt,dc=org
-ou: productes
-description: Container per a productes linux
-objectclass: organizationalunit
 
 dn: ou=usuaris,dc=edt,dc=org
 ou: usuaris
 description: Container per usuaris del sistema linux
 objectclass: organizationalunit
-
-dn: ou=hosts,dc=edt,dc=org
-ou: hosts
-description: Container per a hosts linux
-objectclass: organizationalunit
-
-dn: ou=keys,dc=edt,dc=org
-ou: keys
-description: Container per a keys linux
-objectclass: organizationalunit
-
-dn: ou=certs,dc=edt,dc=org
-ou: certs
-description: Container per a certs linux
-objectclass: organizationalunit
-
-dn: ou=domains,dc=edt,dc=org
-ou: domains
-description: Container per a domains linux
-objectclass: organizationalunit
-
-dn: o=asia,ou=clients,dc=edt,dc=org 
-o: asia
-description: Clients del continent de asia
-objectclass: organization
-
-dn: o=africa,ou=clients,dc=edt,dc=org
-o: africa
-description: Clients del continent de africa
-objectclass: organization
-
-dn: o=europa,ou=clients,dc=edt,dc=org
-o: europa
-description: Clients del continent de europa
-objectclass: organization
-
-dn: o=eu,o=europa,ou=clients,dc=edt,dc=org
-o: eu
-description: Clients del continent europa: unio europea
-objectclass: organization
-
-dn: o=noneu,o=europa,ou=clients,dc=edt,dc=org
-o: noneu
-description: Clients del continent europa: no unio europea
-objectclass: organization
 
 
 # ---------- Usuaris ----------------------------
