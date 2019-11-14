@@ -72,3 +72,28 @@ dn: uid=Jordi,ou=usuaris,dc=edt,dc=org
 dn: uid=admin,ou=usuaris,dc=edt,dc=org
 
 ```
+KERBEROS:
+
+```
+[root@kclient docker]# kinit pere/admin
+Password for pere/admin@SERGI.CAT: 
+[root@kclient docker]# klist
+Ticket cache: FILE:/tmp/krb5cc_0
+Default principal: pere/admin@SERGI.CAT
+
+Valid starting     Expires            Service principal
+11/14/19 11:54:50  11/15/19 11:54:50  krbtgt/SERGI.CAT@SERGI.CAT
+
+[root@kclient docker]# kdestroy
+
+[root@kclient docker]# kinit pau
+Password for pau@SERGI.CAT: 
+[root@kclient docker]# klist
+Ticket cache: FILE:/tmp/krb5cc_0
+Default principal: pau@SERGI.CAT
+
+Valid starting     Expires            Service principal
+11/14/19 11:55:57  11/15/19 11:55:57  krbtgt/SERGI.CAT@SERGI.CAT
+
+
+```
