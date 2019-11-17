@@ -15,7 +15,6 @@
 		<!-- Volume definitions -->
 
 <volume user="pere pau jordi" fstype="cifs" server="samba" path="%(USER)"  mountpoint="~/%(USER)" />
-<volume user="anna marta admin" fstype="nfs" server="nfsserver" path="/var/tmp/home/%(USER)"  mountpoint="~/%(USER)" uid="%(USER)" gid="%(GROUP)" --> />
 		<!-- pam_mount parameters: General tunables -->
 
 <!--
