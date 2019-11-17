@@ -1,6 +1,6 @@
 #! /bin/bash
-# @edt ASIX M06 2018-2019
-# startup.sh
+# @edt ASIX Sergi Muñoz Carmona 2019-2020
+# startup
 # -------------------------------------
 
 /opt/docker/install.sh && echo "Install Ok"
