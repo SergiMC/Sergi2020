@@ -30,6 +30,7 @@ Part Kerberos
 docker run --rm --name ldap.sergi.cat --hostname ldap.sergi.cat --net netcompose -d sergimc/ldapserver:20
 docker run --rm --name kserver.sergi.cat --hostname kserver.sergi.cat --net netcompose -d sergimc/kserver:20
 docker run --rm --name samba --hostname samba --net netcompose --privileged -d sergimc/samba:20
+docker run --rm --name nfsserver --hostname nfsserver --net netcompose --privileged -d sergimc/nfsserver:20
 docker run --rm --name kclient.sergi.cat -h kclient.sergi.cat --net netcompose --privileged -it sergimc/kclient:20 
 ```
 
