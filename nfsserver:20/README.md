@@ -3,7 +3,7 @@
 
 ## Imatge servidor SAMBA en Dockerhub
 Podeu trobar les imatges docker al Dockerhub de [sergimc](https://hub.docker.com/u/sergimc/)
-* **samba:** [nfsserver:20](https://cloud.docker.com/repository/docker/sergimc/nfsserver) (#tag: 20)
+* **nfsserver:20:** [nfsserver:20](https://cloud.docker.com/repository/docker/sergimc/nfsserver) (#tag: 20)
 
  * **nfsserver:20** host pam amb authenticació ldap. Munta els homes de l'usuari via nfs.
 Atenció, per poder realitzar el mount cal que el container es generi amb l'opció **--privileged**.
