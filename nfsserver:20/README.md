@@ -1,12 +1,13 @@
 # PAM
-## @edt ASIX M06-ASO Curs 2018-2019
+## @edt ASIX Sergi Muñoz Carmona M06-ASO Curs 2019-2020
 
-Repositori d'exemples de containers docker que utilitzen PAM
+## Imatge servidor SAMBA en Dockerhub
+Podeu trobar les imatges docker al Dockerhub de [sergimc](https://hub.docker.com/u/sergimc/)
+* **samba:** [nfsserver:20](https://cloud.docker.com/repository/docker/sergimc/nfsserver) (#tag: 20)
 
- * **hostpam:18homenfsd** host pam amb authenticació ldap. Munta els homes de l'usuari via nfs.
+ * **nfsserver:20** host pam amb authenticació ldap. Munta els homes de l'usuari via nfs.
 Atenció, per poder realitzar el mount cal que el container es generi amb l'opció **--privileged**.
 
-Implementa un buble *curtre* per deixar el container en detach.
 
 Fer que els homes dels usuaris es muntin per nfs. Primer caldrà en un servidor nfs crear els directoris homes dels usuaris, i assignar-los els permisos apropiats, propietari i grup (recursivament). Podem fer que el servidor nfs sigui primerament el nostre host amb l’adreça de docker, i posteriorment fabricar un container servidor nfs.
 
