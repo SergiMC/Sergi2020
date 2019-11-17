@@ -1,4 +1,4 @@
-# PAM
+# NFS SERVER 
 ## @edt ASIX Sergi Muñoz Carmona M06-ASO Curs 2019-2020
 
 ## Imatge servidor SAMBA en Dockerhub
