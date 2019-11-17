@@ -1,7 +1,6 @@
 #! /bin/bash
-# @edt ASIX M06 2018-2019
+# @edt ASIX Sergi Muñoz Carmona 2019-2020
 # instal.lacio
-#  - crear usuaris locals
 # -------------------------------------
 groupadd localgrp01
 useradd -g users -G localgrp01 local01
