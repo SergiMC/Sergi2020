@@ -5,8 +5,7 @@
 Podeu trobar les imatges docker al Dockerhub de [sergimc](https://hub.docker.com/u/sergimc/)
 * **nfsserver:20:** [nfsserver:20](https://cloud.docker.com/repository/docker/sergimc/nfsserver) (#tag: 20)
 
- * **nfsserver:20** host pam amb authenticació ldap. Munta els homes de l'usuari via nfs.
-Atenció, per poder realitzar el mount cal que el container es generi amb l'opció **--privileged**.
+ * **nfsserver:20** Servidor nfsserver amb authenticació ldap. Munta els homes de l'usuari via nfs.
 
 
 Fer que els homes dels usuaris es muntin per nfs. Primer caldrà en un servidor nfs crear els directoris homes dels usuaris, i assignar-los els permisos apropiats, propietari i grup (recursivament). Podem fer que el servidor nfs sigui primerament el nostre host amb l’adreça de docker, i posteriorment fabricar un container servidor nfs.
