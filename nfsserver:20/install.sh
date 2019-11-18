@@ -15,20 +15,20 @@ echo "local03" | passwd --stdin local03
 mkdir /tmp/home
 mkdir /tmp/home/anna
 mkdir /tmp/home/marta
-mkdir /tmp/home/admin
+mkdir /tmp/home/sergi
 
 #--------------- Xixa als homes dels usuaris ----------------#
 
 
 cp README.md /tmp/home/anna
 cp README.md /tmp/home/marta
-cp README.md /tmp/home/admin
+cp README.md /tmp/home/sergi
 
 #Apliquem els permissos i associem els homes als usuaris i grups#
 
 chown -R anna.alumnes /tmp/home/anna
 chown -R marta.alumnes /tmp/home/marta
-chown -R admin.wheel /tmp/home/admin
+chown -R sergi.alumnes /tmp/home/sergi
 
 bash /opt/docker/auth.sh
 cp /opt/docker/nslcd.conf /etc/nslcd.conf
