@@ -73,36 +73,6 @@ gidNumber: 100
 homeDirectory: /tmp/home/pere
 userPassword: {SSHA}ghmtRL11YtXoUhIP7z6f7nb8RCNadFe+
 
-dn: uid=anna,ou=usuaris,dc=edt,dc=org
-objectclass: posixAccount
-objectclass: inetOrgPerson
-cn: Anna Pou
-sn: Pou
-homephone: 555-222-2222
-mail: anna@edt.org
-description: Watch out for this girl
-ou: Alumnes
-uid: anna
-uidNumber: 5004
-gidNumber: 600
-homeDirectory: /tmp/home/anna
-userPassword: {SSHA}Bm4B3Bu/fuH6Bby9lgxfFAwLYrK0RbOq
-
-dn: uid=marta,ou=usuaris,dc=edt,dc=org
-objectclass: posixAccount
-objectclass: inetOrgPerson
-cn: Marta Mas
-sn: Mas
-homephone: 555-222-2223
-mail: marta@edt.org
-description: Watch out for this girl
-ou: Alumnes
-uid: marta
-uidNumber: 5003
-gidNumber: 600
-homeDirectory: /tmp/home/marta
-userPassword: {SSHA}9+1F2f5vcW8z/tmSzYNWdlz5GbDCyoOw
-
 dn: uid=Jordi,ou=usuaris,dc=edt,dc=org
 objectclass: posixAccount
 objectclass: inetOrgPerson
@@ -119,6 +89,36 @@ uidNumber: 5002
 gidNumber: 100
 homeDirectory: /tmp/home/jordi
 userPassword: {SSHA}T5jrMgpJwZZgu0azkLIVoYhiG08/KGUv
+
+dn: uid=marta,ou=usuaris,dc=edt,dc=org
+objectclass: posixAccount
+objectclass: inetOrgPerson
+cn: Marta Mas
+sn: Mas
+homephone: 555-222-2223
+mail: marta@edt.org
+description: Watch out for this girl
+ou: Alumnes
+uid: marta
+uidNumber: 5003
+gidNumber: 600
+homeDirectory: /tmp/home/marta
+userPassword: {SSHA}9+1F2f5vcW8z/tmSzYNWdlz5GbDCyoOw
+
+dn: uid=anna,ou=usuaris,dc=edt,dc=org
+objectclass: posixAccount
+objectclass: inetOrgPerson
+cn: Anna Pou
+sn: Pou
+homephone: 555-222-2222
+mail: anna@edt.org
+description: Watch out for this girl
+ou: Alumnes
+uid: anna
+uidNumber: 5004
+gidNumber: 600
+homeDirectory: /tmp/home/anna
+userPassword: {SSHA}Bm4B3Bu/fuH6Bby9lgxfFAwLYrK0RbOq
 
 dn: uid=Sergi,ou=usuaris,dc=edt,dc=org
 objectclass: posixAccount
