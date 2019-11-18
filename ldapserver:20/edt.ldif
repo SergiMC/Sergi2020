@@ -16,6 +16,32 @@ description: Container per usuaris del sistema linux
 objectclass: organizationalunit
 
 
+dn: cn=admin,ou=grups,dc=edt,dc=org
+cn: admin
+cn: system
+gidNumber: 10
+description: Grup de administracio system
+memberUid: admin
+objectclass: posixGroup
+
+dn: cn=alumnes,ou=grups,dc=edt,dc=org
+cn: alumnes
+gidNumber: 600
+description: Grup de alumnes
+memberUid: anna
+memberuid: marta
+memberUid: Jordi
+objectclass: posixGroup
+
+dn: cn=profes,ou=grups,dc=edt,dc=org
+cn: profes
+gidNumber: 100
+description: Grup de profes
+memberUid: pau
+memberUid: pere
+objectclass: posixGroup
+
+
 # ---------- Usuaris ----------------------------
 
 dn: uid=pau,ou=usuaris,dc=edt,dc=org
@@ -53,7 +79,6 @@ dn: uid=anna,ou=usuaris,dc=edt,dc=org
 objectclass: posixAccount
 objectclass: inetOrgPerson
 cn: Anna Pou
-cn: Anita Pou
 sn: Pou
 homephone: 555-222-2222
 mail: anna@edt.org
