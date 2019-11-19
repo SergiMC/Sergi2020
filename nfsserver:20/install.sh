@@ -26,9 +26,9 @@ bash /opt/docker/auth.sh
 cp -ra  /opt/docker/nslcd.conf /etc/nslcd.conf
 cp -ra /opt/docker/ldap.conf /etc/openldap/ldap.conf
 cp -ra /opt/docker/nsswitch.conf /etc/nsswitch.conf
-cp -ra /opt/docker/system-auth-edt /etc/pam.d/system-auth-edt
-cp -ra /opt/docker/pam_mount.conf.xml /etc/security/pam_mount.conf.xml
-ln -ra -sf /etc/pam.d/system-auth-edt /etc/pam.d/system-auth
+#cp -ra /opt/docker/system-auth-edt /etc/pam.d/system-auth-edt
+#cp -ra /opt/docker/pam_mount.conf.xml /etc/security/pam_mount.conf.xml
+#ln -ra -sf /etc/pam.d/system-auth-edt /etc/pam.d/system-auth
 
 cp /opt/docker/exports /etc/exports
 mkdir /run/rpcbind 
