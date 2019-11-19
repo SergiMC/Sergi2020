@@ -22,6 +22,6 @@ mkdir /tmp/home/marta
 mkdir /tmp/home/sergi
 
 
-chown anna.alumnes /tmp/home/anna
+chown anna.alumnes  /tmp/home/anna
 chown marta.alumnes /tmp/home/marta
 chown sergi.alumnes /tmp/home/sergi
