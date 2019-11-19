@@ -6,22 +6,19 @@
 ### Instal·lació
 
 Part Global:
-  * instal·lar procs passwd.
-  * crear els usuaris i assignar password als locals.
-  * un cop fet tot, configurar amb authconfig la autenticació local,
-    kerberos i ldap.
+  * Crearem els usuaris i els assignarem el password als locals
+  * Amb authconfig, configurarem la part local
 
 Part Ldap:
- * instal·lar openldap-clients nss-pam-ldapd authconfig
- * copiar la configuració client /etc/openldap/ldap.conf.
- * copiar la configuració client /etc/nslcd.
- * copiar la configuració ns /etc/nsswitch.conf.
- * activar el servei nslcd
- * activar el servei nscd
+ * Editarem i configurarem els fitxers de la part client: 
+    - ldap.conf
+    - nslcd
+    - nsswitch.conf
+ * Activarem els serveis nslcd i nscd
 
 Part Kerberos
- * instal·lar pam_krb5 authconfig
- * copiar /etc/krb5.conf per la configuració client kerberos
+ * Editarem i configurarem el fitxer client **krb5.conf** 
+
 
 #### Execució:
 ```
