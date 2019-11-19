@@ -29,7 +29,9 @@ docker run --rm --name nfsserver --hostname nfsserver --net netcompose --privile
 docker run --rm --name kclient.sergi.cat -h kclient.sergi.cat --net netcompose --privileged -it sergimc/kclient:20 
 ```
 
-Test:
+#### Comprovació de l'execució:
+
+Ens autentiquem com a usuari pere i comprovem que s'ha muntat el home correctament.
 
 ```
 [root@kclient docker]# su - pere
@@ -45,7 +47,7 @@ drwxr-xr-x. 2 pere users 0 Nov 14 11:50 pere
 
 ```
 
-#### Comprovacions:
+#### Comprovacio dels servidors desde la part de client.
 
 Comprovarem que hi ha connexió del client al servidor ldap amb l'ordre **ldapsearch**.
 * Hem de tenir en compte la IP que té el nostre servidor LDAP.
@@ -73,27 +75,35 @@ dn: uid=admin,ou=usuaris,dc=edt,dc=org
 ```
 KERBEROS:
 
+Per comprovar que funcioni el servidor correctament, utilitzarem les ordres *kinit*, *klist*, *kdestroy*,*kadmin*.
+
+* L'ordre **kinit** ens autentica l'usuari i ens proporciona un ticket de kerberos. El ticket identifica l'usuari
+i ens indica els privilegis que té l'usuari
+
 ```
 [root@kclient docker]# kinit pere/admin
 Password for pere/admin@SERGI.CAT: 
+```
+
+* L'ordre **klist** ens llista la informació obtinguda del ticket.
+
+```
 [root@kclient docker]# klist
 Ticket cache: FILE:/tmp/krb5cc_0
 Default principal: pere/admin@SERGI.CAT
+```
+* L'ordre **kdestroy** elimina el ticket i ja no serà vàlid.
 
+```
 Valid starting     Expires            Service principal
 11/14/19 11:54:50  11/15/19 11:54:50  krbtgt/SERGI.CAT@SERGI.CAT
 
 [root@kclient docker]# kdestroy
+```
+* L'ordre **kadmin** ens comunica amb el dimoni kadmind. Aquesta ordre s'utilitza per administrar la base de
+dades de kerberos. En aquest cas, ens autenticarem amb un usuari privilegiat.
 
-[root@kclient docker]# kinit pau
-Password for pau@SERGI.CAT: 
-[root@kclient docker]# klist
-Ticket cache: FILE:/tmp/krb5cc_0
-Default principal: pau@SERGI.CAT
-
-Valid starting     Expires            Service principal
-11/14/19 11:55:57  11/15/19 11:55:57  krbtgt/SERGI.CAT@SERGI.CAT
-
+```
 [root@kclient docker]# kadmin -p pere/admin
 Authenticating as principal pere/admin with password.
 Password for pere/admin@SERGI.CAT: 
@@ -110,7 +120,5 @@ krbtgt/SERGI.CAT@SERGI.CAT
 marta@SERGI.CAT
 pau@SERGI.CAT
 pere/admin@SERGI.CAT
-
-
 
 ```
