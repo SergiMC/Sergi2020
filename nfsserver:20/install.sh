@@ -3,39 +3,24 @@
 # instal.lacio
 #  - crear usuaris locals
 # -------------------------------------
-#groupadd localgrp01
-#groupadd localgrp02
-#useradd -g users -G localgrp01 local01
-#useradd -g users -G localgrp01 local02
-#useradd -g users -G localgrp01 local03
-#useradd -g users -G localgrp02 local04
-#useradd -g users -G localgrp02 local05
-#useradd -g users -G localgrp02 local06
-#echo "local01" | passwd --stdin local01
-#echo "local02" | passwd --stdin local02
-#echo "local03" | passwd --stdin local03
-#echo "local04" | passwd --stdin local04
-#echo "local05" | passwd --stdin local05
-#echo "local06" | passwd --stdin local06
-
 mkdir /var//tmp/home
-mkdir /var//tmp/home/pere
+
 mkdir /var//tmp/home/anna
 mkdir /var//tmp/home/marta
-mkdir /var//tmp/home/jordi
-mkdir /var//tmp/home/admin
+mkdir /var//tmp/home/sergi
 
-cp README.md /var//tmp/home/pere
+
+
 cp README.md /var//tmp/home/anna
 cp README.md /var//tmp/home/marta
-cp README.md /var//tmp/home/jordi
-cp README.md /var//tmp/home/admin
+cp README.md /var//tmp/home/sergi
 
-chown -R pere.users /var/tmp/home/pere
+
+
 chown -R anna.alumnes /var/tmp/home/anna
 chown -R marta.alumnes /var/tmp/home/marta
-chown -R jordi.users /var/tmp/home/jordi
-chown -R admin.wheel /var/tmp/home/admin
+chown -R sergi.alumnes /var/tmp/home/sergi
+
 
 bash /opt/docker/auth.sh
 cp -ra  /opt/docker/nslcd.conf /etc/nslcd.conf
