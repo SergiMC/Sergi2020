@@ -47,6 +47,9 @@ drwxr-xr-x. 2 pere users 0 Nov 14 11:50 pere
 
 #### Comprovacions:
 
+Comprovarem que hi ha connexió del client al servidor ldap amb l'ordre **ldapsearch**.
+* Hem de tenir en compte la IP que té el nostre servidor LDAP.
+
 LDAP:
 
 ```
