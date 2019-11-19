@@ -1,11 +1,9 @@
 # Kerberos Client
 ## @edt ASIX M11-SAD Curs 2019-2020
 
-**sergimc/** host amb PAM amb autenticació AP de  kerberos i IP de ldap.
-  El servidor kerberos al que contacta s'ha de dir *kserver.edt.org*. El servidor ldap
-  s'anomena ldap.edt.org. Aquest host es configura amb authconfig .
+**sergimc/kclient:20** Host client amb PAM amb autenticació AP de  kerberos i IP de ldap.
   
-per generar autenticació PAM amb kerberos i ldap cal:
+### Instal·lació
 
 Part Global:
   * instal·lar procs passwd.
