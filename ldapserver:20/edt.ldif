@@ -29,6 +29,7 @@ description: Grup de alumnes
 memberUid: anna
 memberuid: marta
 memberUid: Jordi
+memberUid: Sergi
 objectclass: posixGroup
 
 dn: cn=profes,ou=grups,dc=edt,dc=org
