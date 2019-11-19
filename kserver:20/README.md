@@ -53,7 +53,6 @@ Valid starting     Expires            Service principal
 
 ```
 [root@kserver docker]# kdestroy
-
 ```
 * L'ordre **kadmin** ens comunica amb el dimoni kadmind. Aquesta ordre s'utilitza per administrar la base de
 dades de kerberos. En aquest cas, ens autenticarem amb un usuari privilegiat.
@@ -74,5 +73,4 @@ marta@SERGI.CAT
 pau@SERGI.CAT
 pere/admin@SERGI.CAT
 kadmin.local:  
-
 ```
