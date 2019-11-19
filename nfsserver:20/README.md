@@ -1,69 +1,72 @@
-# NFS SERVER 
-## @edt ASIX Sergi Muñoz Carmona M06-ASO Curs 2019-2020
+# NFS
+## @edt ASIX M06-ASO Curs 2018-2019
 
-## Imatge servidor SAMBA en Dockerhub
-Podeu trobar les imatges docker al Dockerhub de [sergimc](https://hub.docker.com/u/sergimc/)
-* **nfsserver:20:** [nfsserver:20](https://cloud.docker.com/repository/docker/sergimc/nfsserver) (#tag: 20)
+Servidor NFS
 
- * **nfsserver:20** Servidor nfsserver amb authenticació ldap. Munta els homes de l'usuari via nfs.
+ * **nfsserver:18base** Servidor nfs. Com a host està configurat amb PAM+LDAP. S'hi creen usuaris locals i té accés via LDAP als usuaris de xarxa.
+Crea els homes dels usuaris (respectant el home indicat al LDAP de cada usuari), li posa xixa al home i li assigna l'usuari i grup apropiat. Exporta els
+homes via el servei nfs-utils (que engega).
 
-
-Fer que els homes dels usuaris es muntin per nfs. Primer caldrà en un servidor nfs crear els directoris homes dels usuaris, i assignar-los els permisos apropiats, propietari i grup (recursivament). Podem fer que el servidor nfs sigui primerament el nostre host amb l’adreça de docker, i posteriorment fabricar un container servidor nfs.
-
-Un host  pam client pot carregar de cop tots els homes del servidor nfs i muntar-los com a homes locals (tot /var/tmp/home es munta a /tmp/home que és on hi ha els homes locals). Per fer-ho així simplement cal configurar fstab per muntar el homes global.
-
-Si volem que els homes de xarxa dels usuaris es muntin individualment, per exemple posant un directori home-xarxa dins del home local, cal instal·lar pam_mount i configurar pam_mount.conf.xml. 
-És especialment important configurar correctament els permisos amb què es munta el directori de xarxa, el propietari i grup ha de ser el de l’usuari.
-
-Atenció: considerem que tenim un servidor nfs actiu i en marxa per exemple al nostre propi host (no en un docker). S’han creat els directoris i fet el chown -R. L’exportació funciona, l’hem provada localment i va.
-
-Atenció: en el container client CAL assegurar-se que el nom de host nfsserver apunta correctament a la ip de docker del nostre host, per exemple la 172.20.0.1. Afegiu aquesta entrada al /etc/hosts.
-
-Atenció: senmbla que el client no engega cap dels serveis relacionats amb nfs-utils. S’hi menja tot pam_mount.
 
 
 #### Execució
 
+En global s'engega el servidor ldap, el servidor nfs i el host amb pam configurat per crear i muntar els homes dels usuaris via nfs.
+
 ```
-docker run --rm --name host -h host --net ldapnet --privileged -d edtasixm06/hostpam:18homenfsd
+docker run --rm --name ldap -h ldap --net ldapnet -d edtasixm06/ldapserver:18group
+docker run --rm --name nfsserver -h nfserver --net ldapnet --privileged -d edtasixm06/nfsserver:18detach
+docker run --rm --name host -h host --net ldapnet --privileged -it edtasixm06/hostpam:18homenfs
 ```
 
 #### Configuracions
 
-system-auth:
+Install.sh:
 ```
-session     optional      pam_mkhomedir.so
-session     [success=1 default=ignore] pam_succeed_if.so service in crond quiet use_uid
-session     [success=1  default=ignore] pam_succeed_if.so uid <= 5000
-   session     optional      pam_mount.so
-session     sufficient    pam_unix.so
+mkdir /var//tmp/home
+mkdir /var//tmp/home/pere
+mkdir /var//tmp/home/anna
+mkdir /var//tmp/home/marta
+mkdir /var//tmp/home/jordi
+mkdir /var//tmp/home/admin
 
+cp README.md /var//tmp/home/pere
+cp README.md /var//tmp/home/anna
+cp README.md /var//tmp/home/marta
+cp README.md /var//tmp/home/jordi
+cp README.md /var//tmp/home/admin
+
+chown -R pere.users /var/tmp/home/pere
+chown -R anna.alumnes /var/tmp/home/anna
+chown -R marta.alumnes /var/tmp/home/marta
+chown -R jordi.users /var/tmp/home/jordi
+chown -R admin.wheel /var/tmp/home/admin
+
+bash /opt/docker/auth.sh
+cp -ra  /opt/docker/nslcd.conf /etc/nslcd.conf
+cp -ra /opt/docker/ldap.conf /etc/openldap/ldap.conf
+cp -ra /opt/docker/nsswitch.conf /etc/nsswitch.conf
+cp -ra /opt/docker/system-auth-edt /etc/pam.d/system-auth-edt
+cp -ra /opt/docker/pam_mount.conf.xml /etc/security/pam_mount.conf.xml
+ln -ra -sf /etc/pam.d/system-auth-edt /etc/pam.d/system-auth
+
+cp /opt/docker/exports /etc/exports
+mkdir /run/rpcbind 
+touch /run/rpcbind/rpcbind.lock
 ```
 
-pam_mount.conf.xml (només a pere se li genera el  ramdisk):
+startup.sh:
 ```
-<volume user="pere" fstype="tmpfs" mountpoint="~/test" options="size=10M,uid=%(USER),mode=0755" />
-<volume user="*" fstype="nfs" server="nfsserver" path="/var/tmp/home/%(USER)"  mountpoint="~/%(USER)" uid="%(USER)" gid="%(GROUP)" />
+/opt/docker/install.sh && echo "Install Ok"
+/usr/sbin/nslcd && echo "nslcd Ok"
+/usr/sbin/nscd && echo "nscd Ok"
+
+/usr/sbin/rpcbind && echo "rpcbind Ok"
+/usr/sbin/rpc.statd && echo "rpc.stad Ok"
+/usr/sbin/rpc.nfsd && echo "rpc.nfsd Ok"
+/usr/sbin/rpc.mountd && echo "rpc.mountd Ok"
+/usr/sbin/exportfs -av
+/bin/bash
 ```
 
-
-#### Utilització
-
-```
-[local01@host ~]$ su - local02
-pam_mount password:
-[local02@host ~]$ pwd
-/home/local02
-[local02@host ~]$ ll
-total 0
-
-[local01@host ~]$ su - pere
-pam_mount password:
-[pere@host ~]$ pwd
-/tmp/home/pere
-[pere@host ~]$ ll
-total 4
-drwx------. 3 pere users 4096 Nov 24 14:44 pere
-drwxr-xr-x. 2 pere users   40 Nov 24 16:26 test
-```
 
