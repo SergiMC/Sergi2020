@@ -28,9 +28,19 @@ docker run --rm --name kserver.sergi.cat --hostname kserver.sergi.cat --net netc
 ```
 ### Comprovació:
 
+Per comprovar que funcione el servidor correctament, utilitzarem les ordres *kinit*, *klist*, *kdestroy*,*kadmin*.
+
+* L'ordre **kinit** ens autentica l'usuari i ens proporciona un ticket de kerberos. El ticket identifica l'usuari
+i ens indica els privilegis que té l'usuari
+
 ```
 [root@kserver docker]# kinit pere/admin
 Password for pere/admin@SERGI.CAT: 
+```
+
+* L'ordre **klist** ens llista la informació obtinguda del ticket.
+
+```
 [root@kserver docker]# klist
 Ticket cache: FILE:/tmp/krb5cc_0
 Default principal: pere/admin@SERGI.CAT
@@ -39,6 +49,14 @@ Valid starting     Expires            Service principal
 11/14/19 12:27:59  11/15/19 12:27:59  krbtgt/SERGI.CAT@SERGI.CAT
 
 ```
+* L'ordre **kdestroy** elimina el ticket i ja no serà vàlid.
+
+```
+[root@kserver docker]# kdestroy
+
+```
+* L'ordre **kadmin** ens comunica amb el dimoni kadmind. Aquesta ordre s'utilitza per administrar la base de
+dades de kerberos. En aquest cas, ens autenticarem amb un usuari privilegiat.
 ```
 [root@kserver docker]# kadmin.local -p pere/admin
 Authenticating as principal pere/admin with password.
@@ -56,6 +74,5 @@ marta@SERGI.CAT
 pau@SERGI.CAT
 pere/admin@SERGI.CAT
 kadmin.local:  
-
 
 ```
