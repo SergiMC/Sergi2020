@@ -111,7 +111,6 @@ kadmin:  listprincs
 K/M@SERGI.CAT
 anna/admin@SERGI.CAT
 jordi@SERGI.CAT
-julia@SERGI.CAT
 kadmin/admin@SERGI.CAT
 kadmin/changepw@SERGI.CAT
 kadmin/kserver.sergi.cat@SERGI.CAT
@@ -120,5 +119,7 @@ krbtgt/SERGI.CAT@SERGI.CAT
 marta@SERGI.CAT
 pau@SERGI.CAT
 pere/admin@SERGI.CAT
+sergi@SERGI.CAT
+
 
 ```
