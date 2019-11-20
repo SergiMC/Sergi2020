@@ -53,7 +53,7 @@ docker run --rm --name kclient.sergi.cat -h kclient.sergi.cat --net netcompose -
 
 #### Verificacions
 
-* Verifiquem que el home es monta correctament
+* Dins del kclient verifiquem que el home de l'usuari autenticat es munta correctament.
 
 ```
 [root@kclient docker]# su - pere
