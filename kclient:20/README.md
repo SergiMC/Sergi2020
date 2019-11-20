@@ -55,20 +55,28 @@ Comprovarem que hi ha connexió del client al servidor ldap amb l'ordre **ldapse
 LDAP:
 
 ```
-[pere@kclient ~]$ ldapsearch -x -LLL -h 172.24.0.2 -b "dc=edt,dc=org" dn
+[root@kclient docker]# ldapsearch -x -LLL -h 172.24.0.2 -b "dc=edt,dc=org" dn
 dn: dc=edt,dc=org
 
 dn: ou=usuaris,dc=edt,dc=org
+
+dn: cn=admin,ou=grups,dc=edt,dc=org
+
+dn: cn=alumnes,ou=grups,dc=edt,dc=org
+
+dn: cn=profes,ou=grups,dc=edt,dc=org
 
 dn: uid=pau,ou=usuaris,dc=edt,dc=org
 
 dn: uid=pere,ou=usuaris,dc=edt,dc=org
 
-dn: uid=anna,ou=usuaris,dc=edt,dc=org
+dn: uid=Jordi,ou=usuaris,dc=edt,dc=org
 
 dn: uid=marta,ou=usuaris,dc=edt,dc=org
 
-dn: uid=Jordi,ou=usuaris,dc=edt,dc=org
+dn: uid=anna,ou=usuaris,dc=edt,dc=org
+
+dn: uid=Sergi,ou=usuaris,dc=edt,dc=org
 
 dn: uid=admin,ou=usuaris,dc=edt,dc=org
 
