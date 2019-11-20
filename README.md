@@ -7,7 +7,7 @@ Podeu trobar les imatges docker al Dockerhub de [sergimc](https://hub.docker.com
 * **samba:20** [samba](https://hub.docker.com/repository/docker/sergimc/samba/general) (#tag: 20)
 * **kserver:20** [kserver](https://hub.docker.com/repository/docker/sergimc/kserver) (#tag: 20)
 * **kclient:20** [kclient](https://hub.docker.com/repository/docker/sergimc/kclient) (#tag:20)
-* **nfsserver:20** [nfsserver]()
+* **nfsserver:20** [nfsserver](https://hub.docker.com/repository/docker/sergimc/nfsserver) (#tag:20)
 
 ## Imatges:
 **sergimc/ldapserver:20** Servidor LDAP amb les dades de la base de dades dc=edt,dc=org Requereix de l'ús d'un servidor ldap.
