@@ -38,3 +38,7 @@ docker run --rm --name samba --hostname samba --net netcompose --privileged -d s
 docker run --rm --name nfsserver --hostname nfsserver --net netcompose --privileged -d sergimc/nfsserver:20
 docker run --rm --name kclient.sergi.cat -h kclient.sergi.cat --net netcompose --privileged -it sergimc/kclient:20 
 ```
+
+#### Verificacions
+Per verificar que hi ha connexions entre LDAP i HOSTPAM fem aquestes ordres:
+
