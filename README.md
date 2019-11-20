@@ -51,7 +51,7 @@ docker run --rm --name nfsserver --hostname nfsserver --net netcompose --privile
 docker run --rm --name kclient.sergi.cat -h kclient.sergi.cat --net netcompose --privileged -it sergimc/kclient:20 
 ```
 
-#### Verificacions
+## Verificacions
 
 * Dins del kclient verifiquem que el home de l'usuari autenticat es munta correctament.
 
@@ -71,7 +71,7 @@ drwxr-xr-x. 2 pere users 0 Nov 14 11:50 pere
 Comprovarem que hi ha connexió del client al servidor ldap amb l'ordre **ldapsearch**.
 * Hem de tenir en compte la IP que té el nostre servidor LDAP.
 
-* Verificació LDAP:
+* **Verificació LDAP:**
 
 ```
 [pere@kclient ~]$ ldapsearch -x -LLL -h 172.24.0.2 -b "dc=edt,dc=org" dn
@@ -92,7 +92,7 @@ dn: uid=Jordi,ou=usuaris,dc=edt,dc=org
 dn: uid=admin,ou=usuaris,dc=edt,dc=org
 
 ```
-* Verificació KERBEROS:
+* **Verificació KERBEROS:**
 
 Per comprovar que funcioni el servidor correctament, utilitzarem les ordres *kinit*, *klist*, *kdestroy*,*kadmin*.
 
