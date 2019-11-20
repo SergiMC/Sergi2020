@@ -30,8 +30,28 @@ docker run --rm --name ldap --hostname ldap --network netcompose -d sergimc/ldap
 Comprovem que ldap està funcionant correctament i mostra els usuaris/dn's amb l'ordre **ldapsearch** en local.
 
 ```
+[root@kclient docker]# ldapsearch -x -LLL -h localhost -b "dc=edt,dc=org" dn
+dn: dc=edt,dc=org
 
+dn: ou=usuaris,dc=edt,dc=org
 
+dn: cn=admin,ou=grups,dc=edt,dc=org
 
+dn: cn=alumnes,ou=grups,dc=edt,dc=org
 
+dn: cn=profes,ou=grups,dc=edt,dc=org
+
+dn: uid=pau,ou=usuaris,dc=edt,dc=org
+
+dn: uid=pere,ou=usuaris,dc=edt,dc=org
+
+dn: uid=Jordi,ou=usuaris,dc=edt,dc=org
+
+dn: uid=marta,ou=usuaris,dc=edt,dc=org
+
+dn: uid=anna,ou=usuaris,dc=edt,dc=org
+
+dn: uid=Sergi,ou=usuaris,dc=edt,dc=org
+
+dn: uid=admin,ou=usuaris,dc=edt,dc=org
 ```
