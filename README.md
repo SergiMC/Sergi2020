@@ -68,3 +68,77 @@ drwxr-xr-x. 2 pere users 0 Nov 14 11:50 pere
 //samba/pere on /tmp/home/pere/pere type cifs (rw,relatime,vers=default,cache=strict,username=pere,domain=,uid=5001,forceuid,gid=100,forcegid,addr=172.24.0.4,file_mode=0755,dir_mode=0755,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,echo_interval=60,actimeo=1)
 
 ```
+Comprovarem que hi ha connexió del client al servidor ldap amb l'ordre **ldapsearch**.
+* Hem de tenir en compte la IP que té el nostre servidor LDAP.
+
+* Verificació LDAP:
+
+```
+[pere@kclient ~]$ ldapsearch -x -LLL -h 172.24.0.2 -b "dc=edt,dc=org" dn
+dn: dc=edt,dc=org
+
+dn: ou=usuaris,dc=edt,dc=org
+
+dn: uid=pau,ou=usuaris,dc=edt,dc=org
+
+dn: uid=pere,ou=usuaris,dc=edt,dc=org
+
+dn: uid=anna,ou=usuaris,dc=edt,dc=org
+
+dn: uid=marta,ou=usuaris,dc=edt,dc=org
+
+dn: uid=Jordi,ou=usuaris,dc=edt,dc=org
+
+dn: uid=admin,ou=usuaris,dc=edt,dc=org
+
+```
+* Verificació KERBEROS:
+
+Per comprovar que funcioni el servidor correctament, utilitzarem les ordres *kinit*, *klist*, *kdestroy*,*kadmin*.
+
+* L'ordre **kinit** ens autentica l'usuari i ens proporciona un ticket de kerberos. El ticket identifica l'usuari
+i ens indica els privilegis que té l'usuari
+
+```
+[root@kclient docker]# kinit pere/admin
+Password for pere/admin@SERGI.CAT: 
+```
+
+* L'ordre **klist** ens llista la informació obtinguda del ticket.
+
+```
+[root@kclient docker]# klist
+Ticket cache: FILE:/tmp/krb5cc_0
+Default principal: pere/admin@SERGI.CAT
+```
+* L'ordre **kdestroy** elimina el ticket i ja no serà vàlid.
+
+```
+Valid starting     Expires            Service principal
+11/14/19 11:54:50  11/15/19 11:54:50  krbtgt/SERGI.CAT@SERGI.CAT
+
+[root@kclient docker]# kdestroy
+```
+* L'ordre **kadmin** ens comunica amb el dimoni kadmind. Aquesta ordre s'utilitza per administrar la base de
+dades de kerberos. En aquest cas, ens autenticarem amb un usuari privilegiat.
+
+```
+[root@kclient docker]# kadmin -p pere/admin
+Authenticating as principal pere/admin with password.
+Password for pere/admin@SERGI.CAT: 
+kadmin:  listprincs
+K/M@SERGI.CAT
+anna/admin@SERGI.CAT
+jordi@SERGI.CAT
+kadmin/admin@SERGI.CAT
+kadmin/changepw@SERGI.CAT
+kadmin/kserver.sergi.cat@SERGI.CAT
+kiprop/kserver.sergi.cat@SERGI.CAT
+krbtgt/SERGI.CAT@SERGI.CAT
+marta@SERGI.CAT
+pau@SERGI.CAT
+pere/admin@SERGI.CAT
+sergi@SERGI.CAT
+
+
+```
