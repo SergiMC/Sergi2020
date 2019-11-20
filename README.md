@@ -24,3 +24,17 @@ Pràctica que utilitzarem LDAP,SAMBA,KERBEROS,CLIENT,NFS. Crearem un client que 
 **sergimc/ldapserver:20**  Un servidor ldap en funcionament amb els usuaris de xarxa.
 
 **sergimc/samba:18homes** Un servidor SAMBA que l'utilitzarem per tal de compartit els homes dels usuaris samba.
+
+## Execució
+
+Generarem 5 dockers amb les seves imatges corresponents amb la seva network adient.
+
+```
+docker network create netcompose
+
+docker run --rm --name ldap.sergi.cat --hostname ldap.sergi.cat --net netcompose -d sergimc/ldapserver:20
+docker run --rm --name kserver.sergi.cat --hostname kserver.sergi.cat --net netcompose -d sergimc/kserver:20
+docker run --rm --name samba --hostname samba --net netcompose --privileged -d sergimc/samba:20
+docker run --rm --name nfsserver --hostname nfsserver --net netcompose --privileged -d sergimc/nfsserver:20
+docker run --rm --name kclient.sergi.cat -h kclient.sergi.cat --net netcompose --privileged -it sergimc/kclient:20 
+```
