@@ -1,36 +1,39 @@
 #! /bin/bash
-# @edt ASIX M06 2018-2019
+# @edt ASIX Sergi Muñoz Carmona 2019-2020
 # instal.lacio
-#  - crear usuaris locals
 # -------------------------------------
-mkdir /var//tmp/home
+groupadd localgrp01
+useradd -g users -G localgrp01 local01
+useradd -g users -G localgrp01 local02
+useradd -g users -G localgrp01 local03
+echo "local01" | passwd --stdin local01
+echo "local02" | passwd --stdin local02
+echo "local03" | passwd --stdin local03
 
-mkdir /var//tmp/home/anna
-mkdir /var//tmp/home/marta
-mkdir /var//tmp/home/sergi
+cp /opt/docker/nslcd.conf /etc/nslcd.conf
+cp /opt/docker/ldap.conf /etc/openldap/ldap.conf
+cp /opt/docker/nsswitch.conf /etc/nsswitch.conf
+
+/usr/sbin/nslcd && echo "nslcd Ok"
+/usr/sbin/nscd && echo "nscd Ok"
+
+# --------- Creació dels homes dels usuaris LDAP-------------#
+
+mkdir /tmp/home
+mkdir /tmp/home/anna
+mkdir /tmp/home/marta
+mkdir /tmp/home/sergi
 
 
+#--------------- Xixa als homes dels usuaris ----------------#
 
-cp README.md /var//tmp/home/anna
-cp README.md /var//tmp/home/marta
-cp README.md /var//tmp/home/sergi
+cp README.md /tmp/home/anna
+cp README.md /tmp/home/marta
+cp README.md /tmp/home/sergi
 
+#Apliquem els permissos i associem els homes als usuaris i grups#
 
-
-chown -R anna.alumnes /var/tmp/home/anna
-chown -R marta.alumnes /var/tmp/home/marta
-chown -R sergi.alumnes /var/tmp/home/sergi
-
-
-bash /opt/docker/auth.sh
-cp -ra  /opt/docker/nslcd.conf /etc/nslcd.conf
-cp -ra /opt/docker/ldap.conf /etc/openldap/ldap.conf
-cp -ra /opt/docker/nsswitch.conf /etc/nsswitch.conf
-#cp -ra /opt/docker/system-auth-edt /etc/pam.d/system-auth-edt
-#cp -ra /opt/docker/pam_mount.conf.xml /etc/security/pam_mount.conf.xml
-#ln -ra -sf /etc/pam.d/system-auth-edt /etc/pam.d/system-auth
-
-cp /opt/docker/exports /etc/exports
-mkdir /run/rpcbind 
-touch /run/rpcbind/rpcbind.lock
+chown -R pere.users /tmp/home/anna
+chown -R pau.users /tmp/home/marta
+chown -R jordi.users /tmp/home/sergi
 
