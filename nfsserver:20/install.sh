@@ -37,3 +37,7 @@ chown -R pere.users /tmp/home/anna
 chown -R pau.users /tmp/home/marta
 chown -R jordi.users /tmp/home/sergi
 
+
+cp /opt/docker/exports /etc/exports
+mkdir /run/rpcbind 
+touch /run/rpcbind/rpcbind.lock
