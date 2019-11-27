@@ -9,6 +9,5 @@
 /usr/sbin/rpc.statd && echo "rpc.stad Ok"
 /usr/sbin/rpc.nfsd && echo "rpc.nfsd Ok"
 /usr/sbin/rpc.mountd && echo "rpc.mountd Ok"
-/usr/sbin/exportfs -av
 /bin/bash
 
