@@ -1,1 +1,3 @@
-/tmp/home *(rw,sync)
+/tmp/home/sergi *(rw,sync)
+/tmp/home/anna *(rw,sync)
+/tmp/home/marta *(rw,sync)
