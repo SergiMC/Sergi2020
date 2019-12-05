@@ -15,6 +15,7 @@ kdb5_util create -s -P masterkey
 kadmin.local -q "addprinc -pw ksergi sergi"
 kadmin.local -q "addprinc -pw kpere pere/admin"
 kadmin.local -q "addprinc -pw kpere pere"
+kadmin.local -q "addprinc -pw kanna anna"
 kadmin.local -q "addprinc -pw kanna anna/admin"
 kadmin.local -q "addprinc -pw kpau pau"
 kadmin.local -q "addprinc -pw kjordi jordi"
